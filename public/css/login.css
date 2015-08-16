@@ -1,0 +1,80 @@
+#login_container {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, #2d9f9c, #4682b4);
+	z-index: 10;
+}
+#login_container.priz_enter_animation {
+	opacity: 0.00001;
+	transform: translate3d(0%,0%,0) scale3d(1,1,1);
+}
+#login_container.priz_exit_animation {
+	transform: translate3d(0%,0%,0) scale3d(1,1,1);
+	opacity: 0.00001;
+}
+#login_container #login_window {
+	width: 350px;
+	height: 230px;
+	margin: 0 auto;
+	display: block;
+	position: absolute;
+	top: calc(50% - 115px);
+	left: calc(50% - 175px);
+	background-color: #303f46;
+	transition: transform 400ms 300ms, opacity 400ms 350ms;
+	transform: translate3d(0%,0px,0) scale3d(1,1,1) rotate3d(1,0,0,0deg);
+	perspective: 500px;
+}
+#login_container.priz_enter_animation #login_window {
+	opacity: 0.0001;
+	transform: translate3d(0%,75px,0) scale3d(1,1,1) rotate3d(1,0,0,-30deg);
+}
+#login_container.priz_exit_animation #login_window {
+	opacity: 0.0001;
+	transform: translate3d(0%,0px,0) scale3d(1,1,1) rotate3d(1,0,0,0deg);
+}
+#login_window #login_header {
+	width: 100%;
+	height: 70px;
+	display: block;
+	background-size: auto 85%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #263137;
+	background-image: url("/images/prizmiqLogo.png");
+}
+#login_window input {
+	width: 330px;
+	height: 40px;
+	font-size: 16px;
+	margin: 10 auto;
+	text-align: center;
+}
+
+#login_window .login_error_mark {
+	height: 40px;
+	width: 0px;
+	background-color: #b71c1c;
+	display: block;
+	position: absolute;
+	left: 10px;
+	z-index: 10;
+	transition: width 250ms;
+}
+#login_window .login_error_mark:nth-child(2) {
+	top:80px;
+}
+#login_window .login_error_mark:nth-child(3) {
+	top:130px;
+}
+#login_window .login_error_mark:nth-child(4) {
+	top:180px;
+}
+
+
+#login_window .login_error_mark.exposed {
+	width: 3px;
+}

@@ -1,0 +1,282 @@
+#edit_scans_container {
+	overflow: hidden;
+	background-color: transparent;
+	transition: transform 450ms, opacity 450ms, top 450ms, left 450ms, width 450ms, height 450ms;
+	-webkit-transition: transform 450ms, opacity 450ms, top 450ms, left 450ms, width 450ms, height 450ms;
+	position: absolute;
+	display: block;
+}
+
+#edit_scans_save_text {
+	text-align: right;
+	position: absolute;
+	font-family: 'Conv_Raleway-Light';
+	font-size: 16px;
+	right: 65px;
+	top: 0px;
+	display: block;
+}
+#edit_scans_save {
+	background-image: url("/images/save.png");
+	position: absolute;
+	right: 35px;
+	top: 15px;
+	width: 20px;
+	height: 20px;
+	background-size: cover;
+	cursor: pointer;
+}
+
+#edit_scans_fs {
+	background-image: url("/images/fullscreen.png");
+	position: absolute;
+	right: 5px;
+	top: 15px;
+	width: 20px;
+	height: 20px;
+	background-size: cover;
+	cursor: pointer;
+}
+
+#edit_scans_fs.minimize {
+	background-image: url("/images/minimize.png");
+}
+
+.title {
+	background-color: rgb(255, 255, 255);
+	width: calc(100% - 20px);
+	height: 48px;
+	line-height: 50px;
+	border-bottom: 2px solid #E2E2E2;
+	font-family: 'Conv_Raleway-Light';
+	padding-left: 20px;
+	font-size: 24px;
+}
+
+.main_view {
+	width: 100%;
+	height: calc(100% - 50px);
+}
+
+.scans_viewer {
+	background-color: rgb(255, 255, 255);
+	height: 100%;
+	width: calc(100% - 250px);
+	float: left;
+}
+
+.edit_pane {
+	transition: transform 250ms, opacity 250ms;
+	transform: translateX(0px) scale(1,1);
+	opacity: 1;
+	position: absolute;
+	background-color: rgb(255, 255, 255);
+	right: 0px;
+	width: 248px;
+	border-left: 2px solid #E2E2E2;
+	height: calc(100% - 50px);
+	z-index: 4;
+}
+.shader_pane, .obj_pane, .texture_pane, .diff_pane, .spec_pane, .norm_pane, .comp_pane {
+	transform: translateX(250px) scale(1,1);
+	z-index: 4;
+}
+#close_pane {
+	z-index: 5;
+	right: 0px;
+	position: absolute;
+	display: block;
+	transition: transform 250ms;
+	transform: translateX(250px);
+	content: 'X';
+}
+.main_pane input.text {
+	width: 80%;
+	padding-left: 5px;
+	padding-right: 5px;
+	height: 32px;
+	margin: 0 auto;
+	position: relative;
+	display: block;
+	margin-top: 10px;
+	font-family: 'Conv_Raleway-Light';
+	font-size: 16px;
+	border: 1px solid #E2E2E2;
+}
+.select_container {
+	width: 80%;
+	height: 32px;
+	border-radius: 0px;
+	border: 1px solid #E2E2E2;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	margin-top: 10px;
+}
+
+.select_container .dropdown {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: block;
+	margin: 0 auto;
+	font-family: 'Conv_Raleway-Light';
+	font-size: 16px;
+	border: none;
+	background: white;
+}
+
+.edit_pane input.button {
+	width: 80%;
+	position: relative;
+	display: block;
+	background-color: rgb(70, 130, 180);
+	border: none;
+	margin: 0 auto;
+	margin-top: 10px;
+	height: 32px;
+	color: white;
+	font-family: 'Conv_Raleway-Light';
+	font-size: 16px;
+	outline: none !important;
+}
+
+.edit_pane input.button:active {
+	background-color: rgb(55, 105, 140);
+}
+
+.main_pane #upload_model {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	display: block;
+	width: 248px;
+}
+.main_pane #upload_model:disabled {
+	background-color: #808080;
+	color: #DDDDDD;
+}
+
+.edit_pane .header {
+	font-family: 'Conv_Raleway-Light';
+	height: 39px;
+	line-height: 40px;
+	font-size: 20px;
+	padding-left:20px;
+	width: calc(100% - 20px);
+	border-bottom: 1px solid #E2E2E2;
+}
+
+.edit_pane .body {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: calc(100% - 72px);
+}
+
+#texture_button_holder {
+	width: 100%;
+	position: relative;
+	display: block;
+	height: auto;
+	overflow: hidden;
+}
+
+.edit_pane .back_button {
+	content : '<';
+	font-family: 'Conv_Raleway-Light';
+	width: 20px;
+	height: 39px;
+	line-height: 39px;
+	float: left;
+	position: relative;
+	display: block;
+	cursor: pointer;
+}
+
+#edit_scans_upload_obj.add_button,
+#edit_scans_upload_diff.add_button,
+#edit_scans_upload_spec.add_button,
+#edit_scans_upload_norm.add_button,
+#edit_scans_upload_comp.add_button {
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
+	font-size: 50px;
+	line-height: 32px;
+	font-weight: bold;
+}
+
+.square_img_container {
+	cursor: pointer;
+	width: 49%;
+	height: 142px;
+	border: 1px solid #E2E2E2;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.square_img_text_container {
+	width: 100%;
+	height: 42px;
+	position: relative;
+	display: block;
+}
+.square_img_text {
+	font-size: 12px;
+	font-family: 'Conv_Raleway-Light';
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	transform: translateY(-50%);
+	top: 50%;
+}
+
+.square_img_view {
+	width: 98px;
+	height: 98px;
+	border: 1px solid #E2E2E2;
+	margin: 0 auto;
+	margin-top: 10px;
+	position: relative;
+	display: block;
+}
+
+.square_obj_container {
+	cursor: pointer;
+	width: calc(100% - 2px);
+	height: 48px;
+	border: 1px solid #E2E2E2;
+	position: relative;
+	display: block;
+}
+
+.square_obj_text_container {
+	width: 181px;
+	height: 42px;
+	line-height: 42px;
+	position: relative;
+	display: block;
+	float: left;
+}
+.square_obj_text {
+	font-size: 12px;
+	font-family: 'Conv_Raleway-Light';
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	transform: translateY(-50%);
+	top: 50%;
+	height: 100%;
+	line-height: 48px;
+}
+
+.square_obj_view {
+	width: 32px;
+	height: 32px;
+	margin: 8px;
+	position: relative;
+	display: block;
+	float: left;
+}

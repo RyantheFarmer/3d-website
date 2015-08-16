@@ -1,0 +1,116 @@
+#add_scans_container {
+	overflow: hidden;
+	background-color: transparent;
+	transition: transform 450ms, opacity 450ms, top 450ms, left 450ms, width 450ms, height 450ms;
+	-webkit-transition: transform 450ms, opacity 450ms, top 450ms, left 450ms, width 450ms, height 450ms;
+	position: absolute;
+	display: block;
+}
+
+#add_scans_save_text {
+	text-align: right;
+	position: absolute;
+	font-family: 'Conv_Raleway-Light';
+	font-size: 16px;
+	right: 65px;
+	top: 0px;
+	display: block;
+}
+#add_scans_save {
+	background-image: url("/images/save.png");
+	position: absolute;
+	right: 35px;
+	top: 15px;
+	width: 20px;
+	height: 20px;
+	background-size: cover;
+	cursor: pointer;
+}
+
+#add_scans_fs {
+	background-image: url("/images/fullscreen.png");
+	position: absolute;
+	right: 5px;
+	top: 15px;
+	width: 20px;
+	height: 20px;
+	background-size: cover;
+	cursor: pointer;
+}
+
+#add_scans_fs.minimize {
+	background-image: url("/images/minimize.png");
+}
+
+.add_pane {
+	transition: transform 250ms, opacity 250ms;
+	transform: translateX(0px) scale(1,1);
+	opacity: 1;
+	position: absolute;
+	background-color: rgb(255, 255, 255);
+	right: 0px;
+	width: 248px;
+	border-left: 2px solid #E2E2E2;
+	height: calc(100% - 50px);
+	z-index: 4;
+}
+
+.add_pane input.button {
+	width: 80%;
+	position: relative;
+	display: block;
+	background-color: rgb(70, 130, 180);
+	border: none;
+	margin: 0 auto;
+	margin-top: 10px;
+	height: 32px;
+	color: white;
+	font-family: 'Conv_Raleway-Light';
+	font-size: 16px;
+	outline: none !important;
+}
+
+.add_pane input.button:active {
+	background-color: rgb(55, 105, 140);
+}
+
+.add_pane .header {
+	font-family: 'Conv_Raleway-Light';
+	height: 39px;
+	line-height: 40px;
+	font-size: 20px;
+	padding-left:20px;
+	width: calc(100% - 20px);
+	border-bottom: 1px solid #E2E2E2;
+}
+
+.add_pane .body {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: calc(100% - 72px);
+}
+
+.add_pane .back_button {
+	content : '<';
+	font-family: 'Conv_Raleway-Light';
+	width: 20px;
+	height: 39px;
+	line-height: 39px;
+	float: left;
+	position: relative;
+	display: block;
+	cursor: pointer;
+}
+
+#add_scans_upload_obj.add_button,
+#add_scans_upload_diff.add_button,
+#add_scans_upload_spec.add_button,
+#add_scans_upload_norm.add_button,
+#add_scans_upload_comp.add_button {
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
+	font-size: 50px;
+	line-height: 32px;
+	font-weight: bold;
+}

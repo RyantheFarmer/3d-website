@@ -1,0 +1,11 @@
+#divider_container{
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+#priz_input{
+	height: 100%;
+	width: 100%;
+}
