@@ -6,7 +6,13 @@ html
         script(src="/js/libs/three.min.js")
         script(src="/js/shaders.js")
         script(src="/js/bg3d.js")
-        script(src="/js/main.js")
+        script(src="/js/history.js")
+        script(src="/js/modules.js")
+        script(src="/js/view_manager.js")
+        script(src="/js/controllers/main.js")
+        script(src="/js/controllers/error.js")
+        script(src="/js/controllers/global.js")
+        script(src="/js/controllers/config.js")
     body
         canvas#main_background
         #header
@@ -22,5 +28,5 @@ html
                     a.anchor_dec(href="/contact")
                         li#nav_item3.nav_item.
                             Contact
-        #main_view.content_wrapper(style="height:2000px;") content
+        #main_view.content_wrapper(style="height:2000px;")
         #footer footer

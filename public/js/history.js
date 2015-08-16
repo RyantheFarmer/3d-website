@@ -1,4 +1,4 @@
-var $ph = (function() {
+var $history = (function() {
 	'use strict';
 	var backCall;
 	var forwardCall;
@@ -41,19 +41,19 @@ var $ph = (function() {
 		},
 		onBack : function(callback) {
 			backCall = callback;
-			return $ph;
+			return $history;
 		},
 		onForward : function(callback) {
 			forwardCall = callback;
-			return $ph;
+			return $history;
 		},
 		onNew : function(callback) {
 			newCall = callback;
-			return $ph;
+			return $history;
 		},
 		onUpdate : function(callback) {
 			updateCall = callback;
-			return $ph;
+			return $history;
 		},
 		location : function(url, title) {
 			window.history.pushState({page:length}, title?title : document.title, url);

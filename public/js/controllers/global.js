@@ -1,47 +1,34 @@
-priz_app.controller('home_controller', function() {
-    var drag_drop_listener;
+app.controller('home_controller', function() {
     return {
         init : function($scope) {
-            $('#editDocsButton').on('click', function() {
-                $scope.location('/editdocs');
-            });
-            $('#shaderButton').on('click', function(){
-                $scope.location('/shaders');
-            });
+    		new Background3D('main_background');
 
-
-
-            /*drag_drop_listener = new priz_drop('#home_container', 'priz_drop_window');
-            drag_drop_listener.on_drop(function(files) {
-                console.log(files);
-            });
-            setTimeout(function(){$priz_modal.bool_window(
-                'Title',
-                'Message thing stuff banana test out how this works I could put tons of text in here potentially like a lot like woah.',
-                function(res) {
-                    console.log(res);
-                });
-            }, 1500);*/
-            $('#test_slider').noUiSlider({
-                start: [50],
-                range: {
-                    'min': 0,
-                    'max': 100
-                },
-                behaviour: 'snap'
-            });
-            $('#test_slider').Link('lower').to(function(value, handleElement, slider) {
-                $('#test_slider .noUi-handle').attr('value',value.split('.')[0]);
-            });
-            $('#test_dropdown').selectBox();
+    		var lastScrollTop = 0;
+    		$(window).scroll(function(event){
+    			var st = $(this).scrollTop();
+    			if (st > lastScrollTop){
+    				$('#header').css({
+    					'height' : '30px',
+    					'top' : '15px',
+    					'background-color': 'rgba(255,255,255,0.75)'
+    				});
+    				$('#navigation a').css({
+    					'line-height' : '30px'
+    				});
+    				$('#header_logo').css({
+    					'top':'-14px',
+    					'border': '1px solid rgba(204,204,204,1)'
+    				});
+    			}
+    			else {
+    				$('#header').css({'height' :'','top':'','background-color':''});
+    				$('#navigation a').css({'line-height':''});
+    				$('#header_logo').css({'top':'','border':''});
+    			}
+    			lastScrollTop = st;
+    		});
         },
         exit : function($scope) {
-            //drag_drop_listener.remove();
-            //drag_drop_listener = undefined;
-            $('#tempButton').off('click');
-            $('#test_slider').remove();
-            $('#editDocsButton').off('click');
-            $('#shaderButton').off('click');
         }
     };
 });

@@ -1,8 +1,8 @@
-function PrizmiqViewManager(app_container) {
+function ViewManager(app_container) {
 	'use strict';
 	var $scope = this;
 	var current_controller = '';
-	var priz_controllers = {};
+	var Controllers = {};
 	var display_urls = {};
 	var fallback_url = {};
 	var prevent_same_location = false;
@@ -16,7 +16,7 @@ function PrizmiqViewManager(app_container) {
 			otherwise : function(options) {
 				fallback_url = options;
 			}
-		}
+		};
 	})();
 	this.setUpdateCallback = function(callback) {
 		updateCallback = callback;
@@ -29,7 +29,7 @@ function PrizmiqViewManager(app_container) {
 			controller_name($scope);
 		}
 		else {
-			priz_controllers[controller_name] = callback;
+			Controllers[controller_name] = callback;
 		}
 	};
 	this.config = function(callback) {
@@ -57,7 +57,7 @@ function PrizmiqViewManager(app_container) {
 		if(prevent_same_location && url == document.location) {
 			return;
 		}
-		$ph.location(url, title);
+		$history.location(url, title);
 	};
 	function getFiles(url) {
 		var path = document.location.pathname.split('?')[0].split('/'); // add query support
@@ -100,14 +100,13 @@ function PrizmiqViewManager(app_container) {
 		if(current_controller) {
 			current_controller.exit($scope);
 		}
-		current_controller = new priz_controllers[final_url.controller];
+		current_controller = new Controllers[final_url.controller];
 		return $.ajax({
 			url : final_url.actual_url,
-			async : true,
 			error : function(a,b,c){console.log(c);}
 		});
-	};
-	$ph.onBack(function(url) {
+	}
+	$history.onBack(function(url) {
 		getFiles(url).success(function(new_html) {
 			update_html(new_html, 'exit', 'enter');
 		});
