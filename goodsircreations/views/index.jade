@@ -1,0 +1,26 @@
+html
+    head
+        title My Website
+        link(rel="stylesheet" type="text/css" href="/css/style.css")
+        link(rel="stylesheet" type="text/css" href="/css/transition.css")
+        script(src="/js/libs/jquery.min.js")
+        script(src="/js/libs/three.min.js")
+        script(src="/js/shaders.js")
+        script(src="/js/bg3d.js")
+    body
+        canvas#main_background
+        #header
+            .content_wrapper
+                a#header_logo
+                ul#navigation
+                    a.anchor_dec(href="/" data="html5")
+                        li#nav_item1.nav_item.
+                            Home
+                    a.anchor_dec(href="/projects" data="html5")
+                        li#nav_item2.nav_item.
+                            Projects
+                    a.anchor_dec(href="/contact" data="html5")
+                        li#nav_item3.nav_item.
+                            Contact
+        #main_view.content_wrapper(style="height:2000px;")
+        #footer footer

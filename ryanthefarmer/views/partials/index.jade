@@ -1,0 +1,29 @@
+html
+    head
+        title RMS
+        link(rel="stylesheet" type="text/css" href="/css/style.css")
+        
+        script(src="/js/modules.js" defer)
+        script(src="/js/history.js" defer)
+        script(src="/js/ViewManager.js" defer)
+        script(src="/js/controllers/main.js" defer)
+        script(src="/js/controllers/home.js" defer)
+        script(src="/js/controllers/login.js" defer)
+        script(src="/js/controllers/error.js" defer)
+        script(src="/js/controllers/config.js" defer)
+    body
+        #loadBG
+        
+        #sidebar
+        #content
+            #header
+                #searchBar
+                #userPortal
+                    if loggedIn
+                        #userProfileBackground
+                            #userProfileMoreButton
+                            #userProfileImage
+                    else
+                        #loginButton(type="button" val="login")
+            #mainContent
+            

@@ -1,0 +1,248 @@
+html, body {
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+
+#loadBG {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 10;
+    background: #efefef; /* Old browsers */
+    background: -moz-linear-gradient(top,  #efefef 0%, #dddddd 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #efefef 0%,#dddddd 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #efefef 0%,#dddddd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+    transition: opacity 250ms;
+    -webkit-transition: opacity 250ms;
+    -moz-transition: opacity 250ms;
+    -o-transition: opacity 250ms;
+}
+
+#loadBG.hidden {
+    opacity: 0.0001;
+}
+
+#header {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 31px;
+    border-bottom: solid 1px #3d3d3d;
+    z-index: 5;
+    background-color: rgba(239, 239, 239, 0.68);
+}
+
+#content {
+    width: calc(100% - 200px);
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background-color: #efefef;
+}
+
+#sidebar {
+    width: 199px;
+    height: 100%;
+    display: inline-block;
+    border-right: 1px solid #3d3d3d;
+}
+
+#mainContent {
+    width: 100%;
+    height: calc(100% - 32px);
+    position: relative;
+    display: block;
+    z-index: 1;
+    background-color: #efefef;
+}
+
+
+/* Login - start */
+
+#loginContainer {
+    position: fixed;
+    display: block;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    opacity: 1;
+    perspective: 500px;
+    background: #efefef; /* Old browsers */
+    background: -moz-linear-gradient(top,  #efefef 0%, #dddddd 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #efefef 0%,#dddddd 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #efefef 0%,#dddddd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+    transition: opacity 250ms;
+    -webkit-transition: opacity 250ms;
+    -moz-transition: opacity 250ms;
+    -o-transition: opacity 250ms;
+}
+
+#loginContainer.viewManagerEnter {
+    opacity: 0.0001;
+}
+
+#loginContainer.viewManagerExit {
+    opacity: 0.0001;
+}
+
+#loginWindow {
+    width: 350px;
+	height: 230px;
+    position: absolute;
+    left: calc(50% - 175px);
+    top: 50%;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+    transform: translateY(-75%) rotateX(35deg) rotateY(0deg);
+    -webkit-transform: translateY(-80%) rotateX(35deg) rotateY(0deg);
+    -moz-transform: translateY(-80%) rotateX(35deg) rotateY(0deg);
+    -o-transform: translateY(-80%) rotateX(35deg) rotateY(0deg);
+    background-color: white;
+    opacity: 0.0001;
+    -webkit-transition: transform 500ms cubic-bezier(0.505, 1, 0.735, 0.945), opacity 350ms linear; /* older webkit */
+    -webkit-transition: transform 500ms cubic-bezier(0.505, 1.495, 0.735, 0.945), opacity 350ms linear;
+    -moz-transition: transform 500ms cubic-bezier(0.505, 1.495, 0.735, 0.945), opacity 350ms linear;
+    -o-transition: transform 500ms cubic-bezier(0.505, 1.495, 0.735, 0.945), opacity 350ms linear;
+    transition: transform 500ms cubic-bezier(0.505, 1.495, 0.735, 0.945), opacity 350ms linear; /* custom */
+}
+
+#loginWindow.shake {
+    -webkit-animation: loginWindowShake 1.25s 1;
+    -moz-animation: loginWindowShake 1.25s 1;
+    -o-animation: loginWindowShake 1.25s 1;
+    animation: loginWindowShake 1.25s 1;
+}
+
+@-webkit-keyframes loginWindowShake {
+    0% {-webkit-transform: translateY(-50%) rotateX(0deg) rotateY(0deg);}
+    30% {-webkit-transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    40% {-webkit-transform: translateY(-50%) rotateX(0deg) rotateY(10deg);}
+    50% {-webkit-transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    60% {-webkit-transform: translateY(-50%) rotateX(0deg) rotateY(10deg);}
+    70% {-webkit-transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    100% {-webkit-transform: translateY(-50%) rotateX(0deg) rotateY(0deg);}
+}
+@-moz-keyframes loginWindowShake {
+    0% {-moz-transform: translateY(-50%) rotateX(0deg) rotateY(0deg);}
+    30% {-moz-transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    40% {-moz-transform: translateY(-50%) rotateX(0deg) rotateY(10deg);}
+    50% {-moz-transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    60% {-moz-transform: translateY(-50%) rotateX(0deg) rotateY(10deg);}
+    70% {-moz-transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    100% {-moz-transform: translateY(-50%) rotateX(0deg) rotateY(0deg);}
+}
+@-o-keyframes loginWindowShake {
+    0% {-o-transform: translateY(-50%) rotateX(0deg) rotateY(0deg);}
+    30% {-o-transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    40% {-o-transform: translateY(-50%) rotateX(0deg) rotateY(10deg);}
+    50% {-o-transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    60% {-o-transform: translateY(-50%) rotateX(0deg) rotateY(10deg);}
+    70% {-o-transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    100% {-o-transform: translateY(-50%) rotateX(0deg) rotateY(0deg);}
+}
+@keyframes loginWindowShake {
+    0% {transform: translateY(-50%) rotateX(0deg) rotateY(0deg);}
+    30% {transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    40% {transform: translateY(-50%) rotateX(0deg) rotateY(10deg);}
+    50% {transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    60% {transform: translateY(-50%) rotateX(0deg) rotateY(10deg);}
+    70% {transform: translateY(-50%) rotateX(0deg) rotateY(-10deg);}
+    100% {transform: translateY(-50%) rotateX(0deg) rotateY(0deg);}
+}
+
+#loginHeader {
+    position: relative;
+    width: 100%;
+    background-color: #DDDDDD;
+    height: 70px;
+    line-height: 70px;
+    color: white;
+    text-align: center;
+    font-family: arial;
+    font-size: 36px;
+}
+
+#loginContent {
+    height: calc(100% - 70px);
+    width: 100%;
+    position: relative;
+}
+
+#loginInput1 {
+}
+
+#loginInput2 {
+
+}
+
+#loginInput3 {
+
+}
+
+.loginInput {
+    width: 330px;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 16px;
+    position: relative;
+    margin-left: 10px;
+    background-color: #DDDDDD;
+    color: white;
+    text-align: center;
+    border: none;
+}
+
+.loginInput:focus {
+    outline: 2px solid #BBBBBB;
+}
+.loginInput:disabled {
+    background-color: #CCCCCC;
+}
+
+
+/* Login -  end  */
+
+
+/* Home - start */
+#homeContainer {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 350ms;
+    -webkit-transition: opacity 350ms;
+    -moz-transition: opacity 350ms;
+    -o-transition: opacity 350ms;
+}
+
+#homeContainer.viewManagerEnter {
+    opacity: 0.0001;
+}
+
+#homeContainer.viewManagerExit {
+    opacity: 0.0001;
+}
+/* Home -  end  */

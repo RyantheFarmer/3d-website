@@ -1,62 +1,36 @@
-var express = require('express');
+var http = require('http');
+var https = require('https');
+
+var fs = require('fs');
 var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var config = require('./config');
+var debug = config.debug;
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var domains = getDirectories(__dirname);
 
-var app = express();
+var domainApps = getApps(domains);
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+http.createServer(callApps).listen(3000);
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', routes);
-app.use('/users', users);
-
-app.use('/partials/home', require('./routes/partials/home'));
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
+function callApps(req, res) {
+    for(var i = 0; i < domains.length; ++i) {
+        if(req.headers.host.split('.')[0] == domains[i]) {
+            if(debug) console.log(req.method + ' ' + req.url);
+            domainApps[domains[i]].request(req, res);
+        }
+    }
 }
 
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
+function getDirectories(srcpath) {
+    return fs.readdirSync(srcpath).filter(function(file) {
+        return file !== 'node_modules' && fs.statSync(path.join(srcpath, file)).isDirectory();
+    });
+}
 
-
-module.exports = app;
+function getApps(appNames) {
+    var tmpObject = {};
+    for(var i = 0; i < appNames.length; ++i) {
+        tmpObject[appNames[i]] = require(path.join(__dirname, appNames[i], 'app.js'));
+    }
+    return tmpObject;
+}
